@@ -1,0 +1,4304 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Loading Page*/
+
+.LoadingPage {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #F8F8FF;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0%;
+    transform: scale(1);
+    animation: ShowHide 7s linear 1;
+}
+
+@keyframes ShowHide {
+    0% {
+        opacity: 100%;
+    }
+
+    99% {
+        opacity: 95%;
+    }
+
+    100% {
+        opacity: 0%;
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: 'Loader';
+    src: url(Assests/Fonts/Cornerstone.ttf);
+}
+
+h1 {
+    text-align: center;
+    color: #0e0d0d;
+    position: relative;
+    font-size: 1.2vw;
+    font-family: 'Loader';
+}
+
+h1:after {
+    position: absolute;
+    content: "";
+    animation: Dots 3.5s cubic-bezier(0, .39, 1, .68) 3;
+}
+
+@keyframes Dots {
+    0% {
+        content: "";
+    }
+
+    33% {
+        content: "."
+    }
+
+    66% {
+        content: ".."
+    }
+
+    100% {
+        content: "..."
+    }
+}
+
+.LoaderHolder {
+    width: 14vw;
+    height: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+.Book {
+    width: 70%;
+    height: 85%;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #FF8C00;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.dummy {
+    width: 48%;
+    height: 96%;
+    border: 1px solid white;
+    background-color: #F8F8FF;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 2.5px rgb(53, 52, 52);
+}
+
+.page {
+    width: 34%;
+    height: 80%;
+    background-color: #F8F8FF;
+    margin: 0;
+    position: absolute;
+    right: 16%;
+    top: 10%;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 0px 1px 5px rgb(53, 52, 52);
+    border-radius: 10px;
+}
+
+.LoaderHolder .page:nth-child(1) {
+    animation: pageTurn 2s cubic-bezier(0, .39, 1, .68) 1.5s 2;
+}
+
+.LoaderHolder .page:nth-child(2) {
+    animation: pageTurn 2s cubic-bezier(0, .39, 1, .68) 2.1s 2;
+}
+
+.LoaderHolder.page:nth-child(3) {
+    animation: pageTurn 2s cubic-bezier(0, .39, 1, .68) 2.4s 2;
+}
+
+.LoaderHolder .page:nth-child(4) {
+    animation: pageTurn 2s cubic-bezier(0, .39, 1, .68) 2.7s 2;
+}
+
+.LoaderHolder .page:nth-child(5) {
+    animation: pageTurn 2s cubic-bezier(0, .39, 1, .68) 3s 2;
+}
+
+@keyframes pageTurn {
+    0% {
+        transform: rotateY(0deg);
+        z-index: 1;
+    }
+
+    20% {
+        background-color: #ffffff;
+        z-index: 1;
+    }
+
+    40% {
+        transform: rotateY(-130deg);
+        z-index: 1;
+    }
+
+    60% {
+        transform: rotateY(-160deg);
+        z-index: 1;
+    }
+
+    80% {
+        transform: rotateY(-170deg);
+        z-index: 1;
+    }
+
+    100% {
+        transform: rotateY(-180deg);
+        z-index: 1;
+    }
+}
+
+
+
+
+/* Main Landing Page*/
+
+/* Header */
+
+@font-face {
+    font-family: 'Menu';
+    src: url(Assests/Fonts/Smoolthan\ Bold.otf);
+}
+
+@font-face {
+    font-family: 'Menu1';
+    src: url(Assests/Fonts/Smoolthan\ Regular.otf);
+}
+
+.MainPage {
+    width: 100%;
+    height: 60vw;
+    background-image: url(Assests/Images/HomeBg.jpg);
+    background-position: contain;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.HeaderTab {
+    width: 100%;
+    height: 4vw;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: -1.7vw;
+    top: 0;
+    z-index: 1;
+}
+
+.LogoHolder {
+    width: 12.5vw;
+    height: 100%;
+    background-image: url(Assests/Images/BookmartLogo.png);
+    background-position: contain;
+    background-size: 100% 100%;
+    margin-left: 30px;
+}
+
+.MenuArea {
+    display: flex;
+    width: 30vw;
+    flex-wrap: nowrap;
+    font-size: 1.2vw;
+    gap: 6vw;
+    text-align: center;
+}
+
+#Login_Button {
+    color: #051120;
+    Margin-right: 5%;
+    background-color: rgb(230, 145, 44);
+    box-shadow: rgb(230, 145, 44);
+    backdrop-filter: blur(1px);
+}
+
+#Login_Button:hover {
+    background-color: rgb(230, 145, 44);
+    font-weight: 900;
+    box-shadow: 1px 1px 15px 6px rgb(230, 145, 44);
+    transition: .3s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.LoginArea {
+    width: 16.5vw;
+    display: flex;
+    justify-content: space-around;
+    justify-self: flex-end;
+}
+
+.MenuOption:after {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: linear-gradient(146deg, rgba(255, 255, 255, .5) 12%, rgba(210, 210, 210, 1) 55%, rgba(255, 255, 255, .5) 94%);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.MenuOption:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.MenuOption {
+    text-decoration: none;
+    color: white;
+    font-family: 'Menu1';
+    transition: .3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.Header_Button {
+    padding: .5vw 1.2vw;
+    border-radius: 5px;
+    position: relative;
+    background-color: rgba(146, 148, 248, 0.4);
+    backdrop-filter: blur(1px);
+    color: rgba(255, 255, 248, .8);
+    font-family: 'Menu';
+    font-size: 1.2vw;
+    border: none;
+    transition: .3s;
+    overflow: hidden;
+}
+
+.Subscription_Button:before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Subscription_Button:hover:before {
+    left: 100%;
+    transition: 1s;
+}
+
+.Header_Button:hover {
+    background-color: rgba(146, 148, 248, 1);
+    font-weight: 900;
+    box-shadow: 1px 1px 35px 10px rgba(146, 148, 248, 0.8);
+    transition: .3s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.MenuOption:hover {
+    color: rgba(225, 255, 248, .7);
+    font-weight: 900;
+    text-shadow: 0px 0px 2px rgba(225, 255, 248, .7);
+    transform: scale(1.05);
+    transition: .3s;
+}
+
+
+
+/* Home Page Setup - Section 1 */
+
+.HomeMain_Content {
+    width: 35%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: center;
+}
+
+.Mockup_Holder {
+    width: 65%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.WholeContainer_Home {
+    width: 78%;
+    height: 85%;
+    display: flex;
+    object-fit: contain;
+}
+
+.Welcome_Content {
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+
+.Welcome_Content_Description {
+    width: 100%;
+    height: 10%;
+    display: flex;
+
+}
+
+.WelcomeTab_button {
+    width: 100%;
+    height: 10%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.Explore {
+    color: white;
+    font-family: 'Menu';
+    padding: 1vw;
+    font-size: 1vw;
+    border-radius: 50px;
+    background-color: #A657F6;
+    box-shadow: inset 5px 5px 10px 20px #A657F6;
+    border: none;
+    animation: 3s glowing infinite;
+    cursor: pointer;
+}
+
+@keyframes glowing {
+    0% {
+        background-color: rgba(166, 87, 246, 0.5);
+        box-shadow: 0 0 10px #BBC2CC;
+    }
+
+    50% {
+        background-color: rgba(166, 87, 246, 0.5);
+        box-shadow: 0 0 20px #BBC2CC;
+    }
+
+    100% {
+        background-color: rgba(166, 87, 246, 0.5);
+        box-shadow: 0 0 10px #BBC2CC;
+    }
+}
+
+.bookicon {
+    font-size: .7vw;
+    text-align: right;
+}
+
+.Book_Mockup {
+    width: 100%;
+    height: 90%;
+    background-image: url(Assests/Images/BookMockup.png);
+    background-size: 120% 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'Title';
+    src: url(Assests/Fonts/Typographica-Blp5.ttf);
+}
+
+.TitleContent {
+    font-size: 3.3vw;
+    color: white;
+    text-align: left;
+    padding: 5% 0% 5% 5%;
+    font-family: 'Title';
+    word-spacing: 10px;
+}
+
+@font-face {
+    font-family: 'Description';
+    src: url(Assests/Fonts/Assistant-Regular.otf);
+}
+
+.DescriptionContent {
+    font-family: 'Description';
+    font-size: 1.1vw;
+    color: #9999B3;
+    text-align: left;
+    padding: 0% 5% 5% 5%;
+}
+
+.AboutUs {
+    width: 35%;
+    height: 74%;
+    background-image: url(Assests/Images/BookContent.png);
+    background-size: 80% 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.QuoteHolder {
+    width: 50%;
+    height: 74%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    gap: 1%;
+    overflow: hidden;
+    position: relative;
+}
+
+.Message {
+    width: 85%;
+    height: 15%;
+    position: absolute;
+}
+
+.DP {
+    position: absolute;
+    width: 8.2%;
+    height: 6.8%;
+
+}
+
+.JKRowlingQuote {
+    background-image: url(Assests/Images/JkRowlingQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 100% 95%;
+    animation: Chat 20s linear infinite;
+    top: 100%;
+
+}
+
+.JKRowling {
+    background-image: url(Assests/Images/JkRowlingDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite .1s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+
+.GeorgeQuote {
+
+    background-image: url(Assests/Images/GeorgeMartinQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 99% 90%;
+    animation: Chat 20s linear infinite 3.3s;
+    top: 100%;
+
+}
+
+.George {
+    background-image: url(Assests/Images/GeorgeDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite 3.4s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+
+.RalphQuote {
+    background-image: url(Assests/Images/RalphQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 98% 90%;
+    animation: Chat 20s linear infinite 6.3s;
+    top: 100%;
+
+
+}
+
+.Ralph {
+    background-image: url(Assests/Images/RalphDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite 6.4s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+
+.MarkQuote {
+    background-image: url(Assests/Images/MarkTwainQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 98% 90%;
+    animation: Chat 20s linear infinite 9.3s;
+    top: 100%;
+
+}
+
+.Mark {
+    background-image: url(Assests/Images/MarkDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite 9.4s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.HonordeQuote {
+    background-image: url(Assests/Images/HonordeQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 75% 70%;
+    animation: Chat 20s linear infinite 12.3s;
+    top: 100%;
+
+}
+
+.Honorde {
+    background-image: url(Assests/Images/HonordeDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite 12.4s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.AnnieQuote {
+    background-image: url(Assests/Images/AnnieQuote.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 98% 90%;
+    animation: Chat 20s linear infinite 15.3s;
+    top: 100%;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.Annie {
+    background-image: url(Assests/Images/AnnieDp.png);
+    background-size: 100% 100%;
+    animation: Chat 20s linear infinite 15.4s;
+    margin-top: 20%;
+    top: 100%;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+@keyframes Chat {
+    0% {
+        top: 100%;
+        opacity: 0%;
+    }
+
+    5% {
+        opacity: 100%;
+    }
+
+    100% {
+        top: -100%;
+        opacity: 50%;
+    }
+}
+
+
+.DiscountPage {
+    width: 100%;
+    height: 56.3vw;
+    background-color: #E6E6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.DiscountPage_ContentHolder {
+    width: 95%;
+    height: 85%;
+}
+
+.Whole_Discount_Content {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.WholeDiscount_Tab {
+    width: 70%;
+    height: 100%
+}
+
+.Sale_Tab {
+    width: 100%;
+    height: 60%;
+    display: flex;
+}
+
+.Discount_Summer {
+    width: 40%;
+    height: 100%;
+    background-image: url(Assests/Images/Discount_Summer.png);
+    background-size: 100% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.Discount_Summer:after {
+    content: "";
+    font-family: 'Description';
+    color: black;
+    font-size: 1.1vw;
+    position: absolute;
+    top: 85%;
+    left: 22.5%;
+    transition: .3s;
+}
+
+.Discount_Summer:hover:after {
+    content: "Apr 14 - June 1";
+    font-family: 'Loader';
+    color: black;
+    font-size: 1.1vw;
+    transition: .3s;
+}
+
+.Discount_Summer:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.DiscountPage_Bannar {
+    width: 100%;
+    height: 25%;
+}
+
+.Discount_Content {
+    font-size: 3.3vw;
+    color: black;
+    text-align: center;
+    padding-top: 2%;
+    font-family: 'Title';
+    word-spacing: 10px;
+}
+
+.Discount_Description {
+    font-family: 'Description';
+    font-size: 1.5vw;
+    color: #051120;
+    text-align: center;
+}
+
+.Start_Shopping_Button {
+    color: black;
+    font-family: 'Description';
+    padding: 1vw;
+    font-size: 1vw;
+    border-radius: 50px;
+    background-color: #E6912C;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+    width: 15%;
+    margin: 2% 42.5%;
+}
+
+.Start_Shopping_Button::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Start_Shopping_Button:hover:before {
+    left: 100%;
+    transition: .3s;
+}
+
+.Start_Shopping_Button:hover #ShoppingIcon {
+    transform: translateX(5px);
+    transition: .3s;
+}
+
+.Today_Sale_Tab {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% auto;
+    background-color: rgba(146, 148, 248, .3);
+    border-radius: 10px;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(10px);
+    }
+
+    15% {
+        transform: translateX(-10px);
+    }
+
+    25% {
+        transform: rotateX(5deg);
+    }
+
+    50% {
+        transform: rotateY(5deg);
+    }
+
+    100% {
+        transform: scale3d(1px 2px 2px);
+    }
+}
+
+.Sale_Content {
+    width: 50%;
+    height: 30%;
+    background-image: url(Assests/Images/TodaySale.png);
+    background-size: 90% 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .3s;
+    position: absolute;
+}
+
+.ComicBook_Tab {
+    width: 100%;
+    height: 100%;
+    background-image: url(Assests/Images/Comic_Book.png);
+    background-size: 70% 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: .3s;
+}
+
+.ComicBook_Tab:after {
+    content: "";
+    font-family: 'Description';
+    color: black;
+    font-size: 1.1vw;
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    transition: .3s;
+}
+
+.ComicBook_Tab:hover {
+    transform: scale(1.2);
+    transition: .3s;
+    animation: shake .4s linear 1;
+}
+
+.ComicBook_Tab:hover:after {
+    content: "50% Discount For All Comic Books";
+    font-family: 'Loader';
+    color: black;
+    font-size: 1.1vw;
+    transition: .3s;
+}
+
+.Book_Tab {
+    position: relative;
+    width: 40%;
+    height: 100%;
+}
+
+.Discount_Tab {
+    width: 40%;
+    height: 60%;
+}
+
+.DiscountSale_Tab {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.Book_Discount {
+    width: 50%;
+    height: 100%;
+
+}
+
+.FiftyPercentBook {
+    background-image: url(Assests/Images/50PercentBook.png);
+    background-size: 90% 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    perspective: 50px;
+    position: relative;
+    transition: .3s;
+}
+
+.FiftyPercentBook:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.FiftyPercentBook:after {
+    content: "";
+    font-family: 'Description';
+    color: black;
+    font-size: 1.2vw;
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    transition: .3s;
+}
+
+.FiftyPercentBook:hover:after {
+    content: "50% Off in Fantasy Books";
+    font-family: 'Loader';
+    color: black;
+    font-size: 1.2vw;
+    transition: .3s;
+}
+
+.Percent {
+    width: 33%;
+    height: 24%;
+    top: 10%;
+    left: 10%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Loader';
+    background-position: center;
+}
+
+.FiftyPercent {
+    background-image: url(Assests/Images/50Percent.png);
+    background-size: 90% 90%;
+
+}
+
+.FortyPercent {
+    background-image: url(Assests/Images/40Percent.png);
+    background-size: 90% 90%;
+}
+
+.FortyPercentBook {
+    background-image: url(Assests/Images/30PercentBook.png);
+    background-size: 66% 68%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.FortyPercentBook:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.FortyPercentBook:after {
+    content: "";
+    font-family: 'Description';
+    color: black;
+    font-size: 1.3vw;
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    transition: .3s;
+}
+
+.FortyPercentBook:hover:after {
+    content: "40% Off in Crime Books";
+    font-family: 'Loader';
+    color: black;
+    font-size: 1.3vw;
+    transition: .3s;
+}
+
+.Advertisement {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.DiscountAd_Holder {
+    position: absolute;
+    width: 75%;
+    height: 70%;
+    display: flex;
+    animation: AD 15s linear infinite;
+}
+
+.Blink_Discount_Button {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Blink_Discount {
+    width: 50%;
+    height: 100%;
+    background-image: url(Assests/Images/Ad_Book.png);
+    background-size: 80% 35%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Hurry_Button {
+    width: 70%;
+    height: 70%;
+    color: white;
+    font-family: 'Description';
+    padding: 2% 4%;
+    font-size: 1vw;
+    border-radius: 50px;
+    background-color: #5b397e;
+    border: none;
+    animation: 3s glowing infinite;
+}
+
+@keyframes AD {
+    0% {
+        right: -100%;
+    }
+
+    100% {
+        right: 100%;
+    }
+}
+
+/* Top Seller Page - Section 3 */
+
+.TopSeller_Books {
+    width: 100%;
+    height: 40vw;
+    background-color: #FDFBF6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.WholeContainer_TopSeller {
+    width: 90%;
+    height: 90%;
+}
+
+.Title_TopSeller {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.3vw;
+    font-family: 'Title';
+    word-spacing: 2px;
+}
+
+.Desciption_TopSeller {
+    width: 100%;
+    height: 10%;
+    font-family: 'Description';
+    font-size: 1.5vw;
+    color: #051120;
+    text-align: center;
+
+}
+
+.Content_Holder_Topseller {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Book_Holder_Top_Seller {
+    width: 18%;
+    height: 80%;
+    box-shadow: 1px 1px 5px gray;
+    position: relative;
+    display: flex;
+}
+
+.Atomic_Habits {
+    background-image: url(Assests/Images/AtomicHabits.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Harry_Potter {
+    background-image: url(Assests/Images/HarryPotter.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Alchemist {
+    background-image: url(Assests/Images/Alchemist.jpg);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.SherlockHomes {
+    background-image: url(Assests/Images/SherlockHomes.png);
+    background-size: 204% 135%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.MockingBird {
+    background-image: url(Assests/Images/MockingBad.png);
+    background-size: 110% 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Book_Content_Topseller {
+    padding-left: 1.2vw;
+    letter-spacing: 3px;
+    color: rgba(254, 243, 226, 0.8);
+}
+
+.Overlay_Topseller {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    background-color: rgba(77, 77, 77, .95);
+    transition: .6s;
+    overflow: hidden;
+}
+
+.Title_Book_Topseller {
+    font-size: 2.1vw;
+    line-height: 3.5vw;
+    margin: 30% 0 10% 0;
+    transform: translateY(0px);
+    transition: .7s;
+    font-weight: bolder;
+    font-family: 'Description';
+}
+
+.Ratings {
+    font-size: 1.2vw;
+    margin: -10% 0 -5% 0;
+    color: rgb(230, 145, 44);
+
+}
+
+hr {
+    display: block;
+    width: 0%;
+    border: none;
+    border-bottom: solid 2px rgba(73, 72, 71, 0.9);
+    position: absolute;
+    line-height: 25vw;
+    bottom: .1vw;
+    left: 1.2vw;
+    transition: .5s;
+}
+
+.Cost_Topseller {
+    font-size: 1.7vw;
+    margin-top: 2vw;
+    font-weight: bold;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.7s;
+    font-family: 'Description';
+}
+
+.Buy-Topseller {
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: .7s;
+    font-family: 'Description';
+}
+
+.buy {
+    transform: translateY(40px);
+    opacity: 0;
+    transition: .7s;
+    font-family: 'Description';
+}
+
+.cart {
+    transform: translateY(40px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.Book_Holder_Top_Seller:hover .Overlay_Topseller {
+    opacity: 1;
+
+    &.Overlay_Topseller {
+        opacity: 1;
+    }
+
+    & .Title_Book_Topseller {
+        transition-delay: 0.1s;
+        transition: .7s;
+        margin-top: 5%;
+    }
+
+    & hr {
+        width: 13vw;
+        transition-delay: 0.4s;
+    }
+
+    & .Cost_Topseller {
+        transform: translateY(0px);
+        transition-delay: 0.3s;
+        opacity: 1;
+    }
+
+    & .Buy_Topseller {
+        transform: translateY(0px);
+        transition-delay: 0.6s;
+        opacity: 1;
+    }
+
+    & .buy {
+        transform: translateY(0px);
+        transition-delay: 0.6s;
+        opacity: 1;
+    }
+
+    & .cart {
+        transform: translateY(0px);
+        transition-delay: .6s;
+        opacity: 1;
+    }
+}
+
+.Book_Holder_Top_Seller:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px 5px rgb(51, 51, 51);
+}
+
+/* Recommened For You Page */
+
+.Recommended_Books {
+    width: 100%;
+    height: 50vw;
+    background-color: #E6E6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.WholeContainer_Recommended_Books {
+    width: 90%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+.Recommended_Books_Title {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.3vw;
+    font-family: 'Title';
+    word-spacing: 2px;
+}
+
+.Recommended_Books_Decription {
+    width: 100%;
+    height: 10%;
+    font-family: 'Description';
+    font-size: 1.5vw;
+    color: #051120;
+    text-align: center;
+
+}
+
+.Recommended_Books_Content {
+    width: calc(15vw*14);
+    height: 80%;
+    display: flex;
+    gap: 2%;
+    align-items: center;
+    overflow: hidden;
+    animation: slider 32s linear infinite;
+    animation-play-state: running;
+}
+
+.Book_Holder_Recommended_Books {
+    width: 70%;
+    height: 70%;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes slider {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-15vw*7));
+    }
+
+}
+
+@keyframes sliderResponsive {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-60vw*7));
+    }
+}
+
+.Book_Holder_Recommended_Books:hover {
+    transform: scale(1.1);
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+
+}
+
+.Recommended_Books_Content:hover {
+    animation-play-state: paused;
+}
+
+.Book_Image_RFY {
+    width: 100%;
+    height: 70%;
+    background-color: #b092ce;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.Book_Title_RFY {
+    width: 100%;
+    height: 10%;
+    font-size: 1.2vw;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Description';
+    font-weight: bolder;
+}
+
+.Book_Cost_RFY {
+    width: 100%;
+    height: 10%;
+    font-size: 1vw;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #ff8c00;
+    ;
+    font-family: 'Description';
+    font-weight: bolder;
+}
+
+.Book_BuyButton_RFY {
+    width: 100%;
+    height: 10%;
+    display: grid;
+    place-content: center;
+}
+
+.BuyButton_RFY {
+    color: black;
+    font-family: 'Description';
+    padding: .3vw;
+    font-size: .8vw;
+    border-radius: 3px;
+    background-color: #E6912C;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.BuyButton_RFY:hover {
+    background-color: rgba(230, 145, 44, 0.7);
+    animation: 1s buttonShake linear 1;
+    transition: .3s;
+}
+
+@keyframes buttonShake {
+    0% {
+        transform: rotateX(5deg);
+    }
+
+    50% {
+        transform: rotateY(5deg);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.AliceInWondeerland_Img {
+    background-image: url(Assests/Images/Alice.png);
+}
+
+.DonQuixote_Img {
+    background-image: url(Assests/Images/Gulivers.jpg);
+}
+
+.LordOfRings_Img {
+    background-image: url(Assests/Images/LorofRings.jpg);
+}
+
+.Redwall_Img {
+    background-image: url(Assests/Images/redwall.jpg);
+}
+
+.Sapiens_Img {
+    background-image: url(Assests/Images/Sapiens.jpeg);
+}
+
+.PsychologyOfMoney_Img {
+    background-image: url(Assests/Images/Psychology.jpg);
+}
+
+.Book1984_Img {
+    background-image: url(Assests/Images/1984.jpeg);
+}
+
+#notAvailable {
+    background-color: rgb(218, 51, 51);
+    color: white;
+}
+
+/* Genre Page- Section 4 */
+
+
+.GenrePage {
+    width: 100%;
+    height: 20vw;
+    background-color: #5b397e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Genre_Page_Container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+}
+
+.Genre_Title {
+    width: 50%;
+    height: 70%;
+    margin-top: 6vw;
+}
+
+.Genre-Title {
+    font-size: 3.3vw;
+    font-family: 'Title';
+    word-spacing: 2px;
+    text-align: center;
+    color: white;
+}
+
+.Genre_Image {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.GenreTitle {
+    width: 100%;
+    height: 30%;
+}
+
+.Genre_Types {
+    width: 100%;
+    height: 40%;
+}
+
+.GenreTypes1 {
+    width: 100%;
+    height: 50%;
+    font-family: 'Menu';
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    word-spacing: 3vw;
+    padding: 1.5vw;
+}
+
+.GenreTypes2 {
+    width: 100%;
+    height: 50%;
+    font-family: 'Menu';
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    word-spacing: 2vw;
+    padding: 1vw;
+}
+
+.GenreDescription {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.Genre-Description {
+    width: 100%;
+    height: 10%;
+    font-family: 'Description';
+    font-size: 1.5vw;
+    color: rgb(255, 153, 0);
+    text-align: center;
+}
+
+.Genre_Vector {
+    width: 100%;
+    height: 60%;
+    background-image: url(Assests/Images/Genre_Vector.png);
+    background-position: top;
+    background-size: 100% 120%;
+    background-repeat: no-repeat;
+}
+
+/* Subscription Page - Scetion 5 */
+
+.Subscription_Page {
+    width: 100%;
+    height: 50vw;
+    background-image: url(Assests/Images/SubscrptionBg.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.Subscription_Contianer {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Subscription_Title {
+    width: 100%;
+    height: 10%;
+    font-size: 3vw;
+    font-family: 'Title';
+    word-spacing: 2px;
+    text-align: right;
+    color: white;
+}
+
+.Content_Holder {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.Subscription_Form {
+    width: 70%;
+    height: 100%;
+}
+
+.Subscrption_Form_Title {
+    width: 100%;
+    height: 30%;
+    font-size: 2vw;
+    font-family: 'Menu';
+    word-spacing: 2px;
+    margin-left: 11vw;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+
+}
+.Subscrption_Form_Title span{
+    padding-left: 10px;
+}
+.Subscrption_Form_Form {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.SubscribeForm_Holder {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 2vw;
+}
+
+.Subscription_Tab {
+    width: 30%;
+    height: 100%;
+    border: 1px solid plum;
+    border-radius: 1vw;
+    background-color: rgba(51, 50, 50, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form {
+    background-color: transparent;
+    color: white;
+    font-size: 1vw;
+    padding: .7vw 23vw .7vw 1vw;
+    border-radius: 5px;
+    font-family: 'Menu';
+    margin: 2vw 2vw 1vw 2vw;
+    border: 1px solid plum;
+}
+
+.Form:focus {
+    outline-color: #9333EA;
+}
+
+.Subscribe_Form_Button {
+    width: 9vw;
+    height: 2vw;
+    color: black;
+    font-family: 'Menu';
+    padding: .3vw .5vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #9333EA;
+    border: none;
+    cursor: pointer;
+    margin: 2vw 2vw;
+    animation: 5s glowingOne linear infinite;
+}
+
+.Whole_div_Subscription {
+    width: 90%;
+    height: 90%;
+}
+
+.SubsTitle {
+    width: 100%;
+    height: 10%;
+    font-size: 1.25vw;
+    font-family: 'Menu';
+    word-spacing: 2px;
+    color: plum;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SubsAmount {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
+    border-bottom: rgb(176, 146, 206, 0.6);
+    font-family: 'Title';
+    word-spacing: 2px;
+    color: white;
+}
+
+.SubsContent {
+    width: 23vw;
+    height: 16vw;
+    display: flex;
+}
+
+.SubsButton {
+    width: 23vw;
+    height: 8vw;
+    display: grid;
+    place-content: center;
+}
+
+.SubscriptionList {
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.05vw;
+    font-family: 'Menu';
+    word-spacing: 2px;
+    line-height: 2.5vw;
+    color: white;
+    margin: 2vw 3.5vw;
+    width: 16vw;
+    height: 14vw;
+}
+
+.star {
+    font-size: 1vw;
+    color: plum;
+}
+
+.SubscribeButton {
+    width: 9vw;
+    height: 2vw;
+    color: white;
+    font-family: 'Menu';
+    padding: .3vw .5vw;
+    font-size: .9vw;
+    border-radius: 50px;
+    background-color: #9333EA;
+    border: none;
+    cursor: pointer;
+}
+
+.SubscribeButton:hover {
+    animation: 1s glowing linear 2;
+    color: white;
+    font-family: 'Menu';
+}
+
+@keyframes glowingOne {
+    0% {
+        background-color: #E6912C;
+        box-shadow: 0 0 10px rgb(255, 153, 0);
+    }
+
+    50% {
+        background-color: #E6912C;
+        box-shadow: 0 0 20px rgb(255, 153, 0);
+    }
+
+    100% {
+        background-color: #E6912C;
+        box-shadow: 0 0 10px rgb(255, 153, 0);
+    }
+}
+
+
+/* Footer Page -Section 6 */
+
+.FooterTab {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    background-color: #051120;
+    justify-content: center;
+    align-items: center;
+}
+
+.FooterContainer {
+    width: 30%;
+    height: 70%;
+}
+
+.SocialMedia {
+    width: 100%;
+    height: 33.33%;
+}
+
+.Socialmedia {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 65%;
+    height: 70%;
+    font-size: 1.25vw;
+    margin: 0 5vw;
+}
+
+.Socialmedia {
+    transition: .3s;
+}
+
+.Socialmedia:hover {
+    transform: scale(1.1) rotateX('5deg');
+    transition: .3s;
+}
+
+.Terms {
+    font-size: 1vw;
+    color: white;
+    margin: 1vw 1vw;
+    font-family: 'Menu';
+}
+
+.Privacy {
+    font-size: 1vw;
+    color: white;
+    margin: 1vw 2vw;
+    font-family: 'Menu';
+}
+
+.TermsandCondition {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Copyrights {
+    width: 100%;
+    height: 36.66%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1vw;
+    color: white;
+}
+
+.CompanyName {
+    font-size: 1vw;
+    color: white;
+    margin: 1vw 1vw 1vw 3vw;
+    font-family: 'Menu';
+}
+
+.AgencyName {
+    font-size: 1vw;
+    color: white;
+    margin: 1vw 3vw 1vw 1vw;
+    font-family: 'Menu';
+}
+
+/* Login Page - Setup */
+
+.Login_Page_Container {
+    background-image: url(Assests/Images/SubscrptionBg.jpg);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.Tab_Container {
+    max-width: 500px;
+    width: 500px;
+}
+
+.Login_Tab {
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Login_Page_Title {
+    height: 90px;
+    font-size: 30px;
+    font-family: 'Title';
+    word-spacing: 2px;
+    text-align: center;
+    color: white;
+    padding-top: 60px;
+}
+
+.Login_Form {
+    padding: 30px 25px 25px 25px;
+    color: white;
+}
+
+.Element {
+    height: 45px;
+    margin-bottom: 25px;
+    position: relative;
+    font-family: 'Menu';
+    font-size: 25px;
+
+}
+
+.Input::placeholder {
+    color: rgba(254, 243, 226, 0.7);
+}
+
+.Input:focus {
+    outline-color: #9333EA;
+    box-shadow: 0px 0px 1px 1px #9333EA;
+}
+
+.Element i {
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 25px;
+    background: transparent;
+    border: 1px solid rgb(176, 146, 206, 0.6);
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid rgb(176, 146, 206, 0.6);
+    size: 20px;
+    transition: 0.3s;
+    font-size: 18px;
+    background-color: transparent;
+    font-family: 'Menu1';
+    color: white;
+}
+
+.Forgot_Password {
+    margin: -8px 0 20px 0;
+    color: white;
+    font-family: 'Menu';
+    font-size: 17px;
+}
+
+.Login_Button {
+    display: flex;
+    justify-content: center;
+    font-family: 'Menu';
+}
+
+.Login-Button {
+    color: #fff;
+    font-size: 20px;
+    padding: 6px 80px;
+    background: rgb(176, 146, 206, 0.6);
+    border: 1px solid rgb(176, 146, 206, 0.6);
+    cursor: pointer;
+    font-family: 'Menu';
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.Redirect {
+    text-align: center;
+    margin-top: 33px;
+    font-size: 15px;
+    color: #FDFBF6;
+    font-family: 'Menu';
+    display: flex;
+    gap: 3%;
+    justify-content: space-between;
+    padding-top: 3px;
+}
+
+.Redirect p {
+    padding-top: 40px;
+    gap: 20px;
+  font-size: .6vw;
+  
+}
+
+.Login-Button::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Login-Button:hover:before {
+    left: 100%;
+    transition: .3s;
+}
+
+.Skip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    padding: .2px 8px .2px 8px;
+    background: rgb(176, 146, 206, 0.6);
+    border: 1px solid rgb(176, 146, 206, 0.6);
+    cursor: pointer;
+    font-family: 'Menu';
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+    margin-left: -7px;
+    margin-right: 140px;
+    margin-top: 37px;
+}
+
+.Skip:before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Skip:hover:before {
+    left: 100%;
+    transition: .3s;
+}
+
+.Skiphover #ShoppingIcon {
+    transform: translateX(5px);
+    transition: .3s;
+}
+
+.Cancel {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 20px 4px 20px;
+    background: rgba(255, 8, 0, 0.6);
+    border: 1px solid rgba(255, 17, 0, 0.6);
+    cursor: pointer;
+    font-family: 'Menu';
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+    margin-left: 50px;
+    margin-top: 22px;
+}
+}
+
+.Cancel:before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Cancel:hover:before {
+    left: 100%;
+    transition: .3s;
+}
+
+
+/* Main Page Store*/
+
+.MainPage_Store {
+    width: 100%;
+    height: 33vw;
+    background-color: #E6912C;
+    overflow: hidden;
+}
+
+.HeaderTab_Store {
+    width: 100%;
+    height: 3vw;
+    margin-top: -.1vw;
+    background-color: white;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+
+.Logout {
+    font-size: 1vw;
+    color: #001C40;
+    font-family: 'Menu';
+    margin-left: 30px;
+    font-weight: 900;
+}
+
+.LogoHolder_Store {
+    font-size: 1.1vw;
+    color: #001C40;
+    font-family: 'Menu';
+    font-weight: 900;
+}
+
+.CartIcon {
+    padding-right: .5vw;
+}
+
+.Profile_Tab {
+    font-size: 1.2vw;
+    color: #001C40;
+    font-family: 'Menu';
+    margin-right: 30px;
+    margin-left: 20px;
+    font-weight: 900;
+    transition: .3s;
+}
+
+.Profile_Tab:hover {
+    color: #001C40;
+    transition: .3s;
+}
+
+.Categories_Tab {
+    width: 100%;
+    height: 3vw;
+    margin-top: 2.9vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    gap: 3vw;
+    z-index: 50;
+    align-items: center;
+    border: 1px solid darkblue;
+}
+
+.FilterMenu_Store {
+    text-decoration: none;
+    color: #001C40;
+    font-family: 'Menu';
+    font-weight: 900;
+    font-size: 1.1vw;
+    transition: .5s;
+}
+
+.FilterMenu_Store_Block {
+    text-decoration: none;
+    color: #001C40;
+    font-family: 'Menu';
+    font-weight: 900;
+    font-size: 1.1vw;
+    transition: .5s;
+    position: relative;
+}
+
+.premium {
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: .9vw;
+    font-family: 'Description';
+    font-weight: 900;
+    padding: .2vw;
+    padding-bottom: .3vw;
+    background-color: Red;
+    text-align: center;
+    color: white;
+    display: none;
+}
+
+.FilterMenu_Store_Block:hover {
+    color: white;
+    transition: .1s;
+}
+
+.FilterMenu_Store_Block:hover .premium {
+    display: block;
+    transition: .1s;
+}
+
+.FilterMenu_Store:hover {
+    border-bottom: 3px solid maroon;
+    transition: .5s;
+}
+
+.FilterMenu_Store:focus {
+    border: 5px solid rgb(0, 153, 255);
+    padding: .5vw;
+    transition: .5s;
+    color: #0a60cf;
+}
+
+.Slider_Holder {
+    width: 100%;
+    height: 40vw;
+    position: relative;
+    transform: translateX(-100%);
+    animation: 8s Slider2 linear infinite;
+    transition: .3s;
+}
+
+.SliderAD {
+    margin-top: 3vw;
+    width: 100.5%;
+    height: 32vw;
+    display: flex;
+    position: absolute;
+
+}
+
+.Slider {
+    /* width: 100%; */
+    flex: 0 0 100.5%;
+    height: 100%;
+    border-bottom: 1px solid #001C40;
+}
+
+.Slider1 {
+    background-image: url(Assests/Images/Slider4.jpg);
+    background-position: center;
+    background-size: 101% 101%;
+    background-repeat: no-repeat;
+    /* flex: 0 0 100%; */
+
+}
+
+.Slider2 {
+    background-image: url(Assests/Images/Slider3.jpg);
+    /* background-color: #0acf35; */
+    background-position: center;
+    background-size: 101% 101%;
+    background-repeat: no-repeat;
+    /* flex: 0 0 100%; */
+
+}
+
+.Slider3 {
+    background-image: url(Assests/Images/Slider2.jpg);
+    /* background-color: #00e1ff; */
+    background-position: center;
+    background-size: 101% 101%;
+    background-repeat: no-repeat;
+    /* flex: 0 0 100%; */
+
+}
+
+.Slider4 {
+    background-image: url(Assests/Images/Slider1.jpg);
+    background-position: center;
+    background-size: 101% 101%;
+    background-repeat: no-repeat;
+    /* flex: 0 0 100%; */
+
+}
+
+@keyframes Slider2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(-102%);
+    }
+
+    50% {
+        transform: translateX(-102%);
+    }
+
+    55% {
+        transform: translateX(-205%);
+    }
+
+    75% {
+        transform: translateX(-205%);
+    }
+
+    80% {
+        transform: translateX(-303.9%);
+    }
+
+    100% {
+        transform: translateX(-303.9%);
+    }
+}
+
+img {
+    width: 100.2%;
+}
+
+.NewArrivalTab {
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #3866a1;
+    border-style: outset;
+}
+
+.NewArrival_Holder {
+    width: 90%;
+    height: 80%;
+}
+
+.NewArrival_Title {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vw;
+    font-family: 'Title';
+    word-spacing: 2px;
+    word-spacing: 5px;
+}
+
+.NewArrival_Shelf {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2vw;
+}
+
+.Books {
+    width: 20%;
+    height: 90%;
+    transition: .3s;
+}
+
+.Book_Image {
+    width: 100%;
+    height: 70%;
+    position: relative;
+    overflow: hidden;
+}
+
+.Overlay_Book {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 70px;
+    left: 2.5vw;
+    background-color: rgba(233, 97, 97, 0.95);
+    transition: .6s;
+    box-shadow: 0px 0px 10px 3px rgba(233, 97, 97, 0.95);
+}
+
+.BuyButton1 {
+    font-size: 2vw;
+}
+
+#No-Stock {
+    background-color: rgb(68, 70, 65);
+    box-shadow: 0px 0px 10px 3px rgb(68, 70, 65);
+}
+
+.Books:hover {
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.Books:hover .Overlay_Book {
+    opacity: 1;
+    transition: .5s;
+}
+
+.Books:hover .BuyButton1 {
+    opacity: 1;
+    transition: .5s;
+}
+
+.Book_Title {
+    width: 100%;
+    height: 15%;
+    font-size: 1.5vw;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Description';
+    font-weight: bolder;
+}
+
+.Book_Rate {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Book_Rating {
+    width: 20%;
+    height: 100%;
+    font-size: 1.2vw;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Description';
+    font-weight: bolder;
+    margin-left: 2vw;
+}
+
+.Book_Cost {
+    width: 20%;
+    height: 100%;
+    font-size: 1.2vw;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    color: #ffbb00;
+    font-family: 'Description';
+    font-weight: bolder;
+    margin-right: 2vw;
+}
+
+.NewArrival1 .Book_Image {
+    background-image: url(Assests/Images/Skander.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival2 .Book_Image {
+    background-image: url(Assests/Images/shanghaiimmortal.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival3 .Book_Image {
+    background-image: url(Assests/Images/SaveWhats.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival4 .Book_Image {
+    background-image: url(Assests/Images/Ironman.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival5 .Book_Image {
+    background-image: url(Assests/Images/Disorienttion.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival6 .Book_Image {
+    background-image: url(Assests/Images/Watchmen.jpeg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival7 .Book_Image {
+    background-image: url(Assests/Images/Batman.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival8 .Book_Image {
+    background-image: url(Assests/Images/Ironman.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival9 .Book_Image {
+    background-image: url(Assests/Images/Alice.png);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival10 .Book_Image {
+    background-image: url(Assests/Images/redwall.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival11 .Book_Image {
+    background-image: url(Assests/Images/AtomicHabits.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival12 .Book_Image {
+    background-image: url(Assests/Images/Psychology.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival13 .Book_Image {
+    background-image: url(Assests/Images/Sapiens.jpeg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival14 .Book_Image {
+    background-image: url(Assests/Images/1984.jpeg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival15 .Book_Image {
+    background-image: url(Assests/Images/MockingBad.png);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival16 .Book_Image {
+    background-image: url(Assests/Images/JungleBook.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival17 .Book_Image {
+    background-image: url(Assests/Images/Charlie.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival18 .Book_Image {
+    background-image: url(Assests/Images/Alice.png);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival19 .Book_Image {
+    background-image: url(Assests/Images/RedRidingHood.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival20 .Book_Image {
+    background-image: url(Assests/Images/redwall.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival21 .Book_Image {
+    background-image: url(Assests/Images/LorofRings.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.NewArrival22 .Book_Image {
+    background-image: url(Assests/Images/HarryPotter.png);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival23 .Book_Image {
+    background-image: url(Assests/Images/Skander.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival24 .Book_Image {
+    background-image: url(Assests/Images/Alchemist.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+}
+
+.NewArrival25 .Book_Image {
+    background-image: url(Assests/Images/Gulivers.jpg);
+    background-position: center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+
+}
+
+.ComicBookTab {
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.QuoteTab {
+    width: 100%;
+    height: 7vw;
+    background-color: #0a60cf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-family: 'Description';
+    font-weight: bolder;
+    font-size: 1.2vw;
+}
+
+.Non-FictionBookTab {
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #3866a1;
+    border-style: outset;
+}
+
+.KidStoryTab {
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.QuoteTab {
+    width: 100%;
+    height: 7vw;
+    background-color: #0a60cf;
+}
+
+.RatingsTab {
+    width: 100%;
+    height: 15vw;
+    background-color: #f1efed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Rating_Holder {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.Content_Container {
+    width: 20%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+
+.Icon_Holder {
+    width: 20%;
+    height: 60%;
+    margin: 2vw 6vw;
+    display: grid;
+    place-content: center;
+    border-radius: 5px;
+    font-size: 2vw;
+}
+
+.Text_Holder {
+    width: 100%;
+    height: 40%;
+    display: grid;
+    place-content: center;
+    color: #001C40;
+    font-size: 1.25vw;
+    font-family: 'Description';
+    font-weight: bolder;
+}
+
+.Rating_title_Holder {
+    width: 80%;
+    height: 80%;
+}
+
+.FantasyTab {
+    width: 100%;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.salesPage {
+    width: 100%;
+    height: 50vw;
+    background-color: #eeff00;
+}
+
+/* Product Page Setup */
+
+.Product_Page {
+    width: 100%;
+    height: 60vw;
+    background-color: #F28500;
+}
+
+.Product_Buying_Form {
+    width: 100%;
+    height: 40vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.Product_Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Product_Tab {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    background-color: #F4FDFF;
+    border-radius: 10px;
+}
+
+.Product_Showcase {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Product_Pic_Holder {
+    width: 75%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.Product_Details {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5vw;
+    border: #0e0d0d;
+}
+
+.Web_Name {
+    width: 100%;
+    height: 10%;
+    font-size: 1.1vw;
+    color: #001C40;
+    font-family: 'Menu';
+    font-weight: 900;
+    text-align: right;
+    margin-top: 2vw;
+
+}
+
+.Product_Details_Title {
+    width: 100%;
+    height: 10%;
+    font-size: 1.5vw;
+    text-align: center;
+    color: #0e0d0d;
+    font-family: 'Description';
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.Product_Title {
+    width: 100%;
+    height: 12%;
+    font-size: 3vw;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Title';
+    display: flex;
+    font-weight: bolder;
+    align-items: flex-end;
+    justify-content: center;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+.Product_Genre {
+    width: 100%;
+    height: 4%;
+    font-size: 1.5vw;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Menu';
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.Product_Review {
+    width: 100%;
+    height: 8%;
+    font-size: 1vw;
+    color: #6b6464;
+    font-family: 'Description';
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 1vw;
+}
+
+.Product_Cost {
+    width: 100%;
+    height: 12%;
+    font-size: 3vw;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Loader';
+    display: flex;
+    font-weight: bolder;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.Product_Buy_Tab {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Buy_Button_Purchase {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Start_Buying_Button {
+    color: black;
+    font-family: 'Description';
+    padding: .7vw 3vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #E6912C;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.Start_Buying_Button i {
+    font-size: .7vw;
+}
+
+.Start_Buying_Button:before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Start_Buying_Button:hover:before {
+    left: 100%;
+    transition: .3s;
+}
+
+.Start_Buying_Button:hover i {
+    transform: translate(10px, 0px);
+    transition: .3s;
+}
+
+.Store_Button {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Return_Button {
+    color: white;
+    font-family: 'Description';
+    padding: .7vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #8023B1;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.Return_Button:before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9),
+            transparent);
+    transition: .3s;
+}
+
+.Return_Button:hover:before {
+    left: 100%;
+    transition: .1s;
+}
+
+.Payment_Tab {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    background-color: #F8F8FF;
+    border-radius: 10px;
+}
+
+.ShoppingVector {
+    width: 40%;
+    height: 100%;
+    background-color: #E6E6FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px 3px 3px 10px;
+}
+
+.Vector {
+    width: 70%;
+    height: 60%;
+    background-image: url(Assests/Images/Shopping\ Vector.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.Vector_Title {
+    font-size: 3vw;
+    text-align: left;
+    color: #0e0d0d;
+    font-family: 'Title';
+    display: flex;
+    font-weight: bolder;
+    align-items: flex-end;
+    justify-content: center;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+}
+
+.Payment_Gateway {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Payment_Info {
+    width: 100%;
+    height: 10%;
+    font-size: 1.5vw;
+    text-align: left;
+    margin-left: 7vw;
+    color: #0e0d0d;
+    font-family: 'Description';
+    padding-top: .5vw;
+    font-weight: bolder;
+}
+
+.Payment_Form {
+    width: 100%;
+    height: 90%;
+    display: flex;
+
+}
+
+.GetData {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.QR {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #E6E6FA;
+    border-radius: 10px;
+}
+
+.QRTitle {
+    width: 100%;
+    height: 20%;
+    font-size: 1.5vw;
+    text-align: center;
+    color: #a63dec;
+    font-family: 'Menu';
+    padding-top: 5vw;
+    font-weight: bolder;
+}
+
+.QRHolder {
+    width: 100%;
+    height: 80%;
+    background-image: url(Assests/Images/QR.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80% 70%;
+}
+
+.PaymentMode {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PaymentMode label {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #051120;
+    font-family: 'Menu';
+    font-weight: bolder;
+    margin: 4vw 6vw 0vw 6vw;
+}
+
+.UPI {
+    margin: 1vw auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+.UPI label {
+    font-size: 1.3vw;
+    text-align: center;
+    color: #051120;
+    font-family: 'Menu';
+    font-weight: bolder;
+}
+
+.UPI input {
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 1vw 5vw 1vw 1vw;
+    color: rgb(2, 2, 2);
+    font-family: 'Menu1';
+    font-size: 1vw;
+}
+
+.UPIapps {
+    width: 80%;
+    height: 60%;
+    background-size: 50% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.div {
+    width: 33.3%;
+    height: 100%;
+}
+
+.Gpay {
+    background-image: url(Assests/Images/Gpay.png);
+    background-repeat: no-repeat;
+    background-size: 60% 70%;
+    background-position: center;
+}
+
+.Paytm {
+    background-image: url(Assests/Images/Paytm.png);
+    background-repeat: no-repeat;
+    background-size: 70% 80%;
+    background-position: center;
+}
+
+.Phonepe {
+    background-image: url(Assests/Images/Phonepe.png);
+    background-repeat: no-repeat;
+    background-size: 60% 70%;
+    background-position: center;
+}
+
+.Product_Pay_Tab {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    margin-left: 1.5vw;
+}
+
+.Pay_Button {
+    color: black;
+    font-family: 'Description';
+    padding: .7vw 3vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #E6912C;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.Pay_Button:before {
+    color: white;
+    display: grid;
+    place-content: center;
+    content: "Done";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: green;
+    transition: 1s;
+}
+
+.Pay_Button:focus:before {
+    width: 100%;
+    left: 0%;
+    transition: 1s;
+}
+
+.Pay_Button:focus .OrderTab {
+    z-index: 1;
+}
+
+.Pay_Button:hover i {
+    transform: translate(10px, 0px);
+    transition: .3s;
+}
+
+/* Product List */
+
+
+.Skander-Image {
+    background-image: url(Assests/Images/Skander.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Shangai-Immortal-Image {
+    background-image: url(Assests/Images/shanghaiimmortal.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Save-What-Left-Image {
+    background-image: url(Assests/Images/SaveWhats.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Invincible-Ironman-Image {
+    background-image: url(Assests/Images/Ironman.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Disorientation-Image {
+    background-image: url(Assests/Images/Disorienttion.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Watchmen-Image {
+    background-image: url(Assests/Images/Watchmen.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Batman-Image {
+    background-image: url(Assests/Images/Batman.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Alice-in-wonderland-Image {
+    background-image: url(Assests/Images/Alice.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Redwall-Image {
+    background-image: url(Assests/Images/redwall.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Atomic-Habits-Image {
+    background-image: url(Assests/Images/AtomicHabits.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Psychology-of-money-Image {
+    background-image: url(Assests/Images/Psychology.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Sapiens-Image {
+    background-image: url(Assests/Images/Sapiens.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Book-1948-Image {
+    background-image: url(Assests/Images/1984.jpeg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.To-Kill-A-Mocking_Bad-Image {
+    background-image: url(Assests/Images/MockingBad.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Jungle-Book-Image {
+    background-image: url(Assests/Images/JungleBook.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Charlie-And-The-Choclate_Factory-Image {
+    background-image: url(Assests/Images/Charlie.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Red-Ridinghood-Image {
+    background-image: url(Assests/Images/RedRidingHood.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.The_Lord_of-Rings-Image {
+    background-image: url(Assests/Images/LorofRings.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.Harry-Potter-Image {
+    background-image: url(Assests/Images/HarryPotter.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.The-Alchemist-Image {
+    background-image: url(Assests/Images/Alchemist.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.iFrame {
+    width: 100%;
+    /* height: 50vw; */
+}
+
+/* Order Page */
+
+.OrderTab {
+
+    width: 100%;
+    height: 75vw;
+    top: 50vw;
+    background-color: #493368;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.OrderTab_Holder {
+    width: 50%;
+    height: 90%;
+    background-color: White;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Order_Title {
+    width: 100%;
+    height: 10%;
+    font-size: 2.5vw;
+    text-align: right;
+    color: White;
+    font-family: 'Loader';
+    display: flex;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: center;
+    word-spacing: 8px;
+    letter-spacing: 2px;
+    background-color: #559747;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.Order_Content {
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.Order_MainTab {
+    width: 40%;
+    height: 100%;
+    background-image: url(Assests/Images/OrderTrack.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.OrderImage_Holder {
+    width: 100%;
+    background-color: #D5F7DB;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.Order_Place {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Order_Image {
+    width: 100%;
+    height: 35%;
+    background-image: url(Assests/Images/OrederStatus.png);
+    background-position: center;
+    background-size: 20% 65%;
+    background-repeat: no-repeat;
+}
+
+.Order_Status {
+    width: 100%;
+    height: 10%;
+    font-size: 2.5vw;
+    text-align: center;
+    color: black;
+    font-family: 'Menu';
+}
+
+.Order_Description {
+    width: 100%;
+    font-size: 1vw;
+    text-align: center;
+    color: black;
+    font-family: 'Menu1';
+    height: 5%;
+}
+
+.Order-Statement {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    height: 60%;
+    font-family: 'Menu1';
+    font-size: 1vw;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding-left: 1vw;
+    color: #FDFBF6;
+    background-color: #888181;
+}
+
+td {
+    padding-left: 1vw;
+    background-color: #ffffff;
+}
+
+.Order_Buttons {
+    width: 100%;
+    height: 20%;
+    display: flex;
+}
+
+.TrackButtons {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Store_Button {
+    width: 50%;
+    height: 100%;
+}
+
+.Track_Button {
+    color: black;
+    font-family: 'Description';
+    padding: .7vw 1vw;
+    font-size: 1vw;
+    border-radius: 10px;
+    background-color: #E6912C;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-weight: bolder;
+}
+
+.Track_Button:before {
+    color: white;
+    display: grid;
+    place-content: center;
+    content: "Order Placed";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background: rgb(3, 8, 73);
+    transition: 1s;
+}
+
+.Track_Button:focus:before {
+    width: 100%;
+    left: 0%;
+    transition: 1s;
+}
+
+.HeaderTab_Order {
+    width: 100%;
+    height: 3vw;
+    top: 0;
+    margin-top: -.1vw;
+    background-color: white;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+}
+
+/* Mobile responsive Layout */
+
+
+@media (max-width: 1080px) {
+
+    /* Loader */
+
+  body{
+    width: 100%;
+    height:100%;
+  }
+    .LoaderHolder {
+        width: 38vw;
+        height: 20vw;
+    }
+  h1{
+    font-size: 3vw;
+  }
+
+    /* Main Page */
+    .MainPage {
+        width: 100%;
+        height: 170vw;
+    }
+
+    .WholeContainer_Home {
+        width: 90%;
+    }
+
+    .HeaderTab {
+        width: 100%;
+        height: 8vw;
+        margin-top: -6vw;
+    }
+
+    .MenuArea {
+        display: none;
+    }
+
+    .LogoHolder {
+        width: 25vw;
+        height: 100%;
+    }
+
+    .LoginArea {
+        width: 17vw;
+    }
+
+    #Login_Button {
+        Margin-right: 10%;
+    }
+
+    #Login_Button:hover {
+        box-shadow: .3px .3px 10px 2px rgb(230, 145, 44);
+    }
+
+    .Header_Button {
+        padding: 1vw 4.5vw;
+        font-size: 2.5vw;
+    }
+
+    .Subscription_Button {
+        display: none;
+    }
+
+    .WholeContainer_Home {
+        flex-direction: column;
+    }
+
+    .HomeMain_Content {
+        width: 100%;
+        height: 30%;
+    }
+
+    .TitleContent {
+        display: grid;
+        place-content: center;
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .DescriptionContent {
+        padding: 5vw 7vw 0vw 7vw;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        font-size: 2vw;
+    }
+
+    .Explore {
+        display: none;
+    }
+
+    .WelcomeTab_button {
+        display: none;
+    }
+
+    .Mockup_Holder {
+        width: 100%;
+        height: 100%;
+        align-items: flex-start;
+    }
+
+
+    /* Discount Page*/
+
+    .DiscountPage {
+        width: 100%;
+        height: 170vw;
+    }
+
+    .Whole_Discount_Content {
+        flex-direction: column;
+        width: 100%;
+        height: 95%;
+    }
+
+    .WholeDiscount_Tab {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Sale_Tab {
+        width: 100%;
+        height: 70%;
+    }
+
+    .DiscountPage_Bannar {
+        width: 100%;
+        height: 40%;
+    }
+
+    .Discount_Content {
+        font-size: 4vw;
+    }
+
+    .Discount_Description {
+        font-size: 2vw;
+    }
+
+    .Start_Shopping_Button {
+        font-size: 1.5vw;
+    }
+
+    .FiftyPercentBook:hover:after {
+        font-size: 2vw;
+        transition: 0;
+    }
+
+    .Discount_Summer:hover:after {
+        font-size: 2vw;
+        transition: 0;
+        padding-bottom: 5%;
+    }
+
+    .FortyPercentBook:hover:after {
+        font-size: 2vw;
+        transition: 0;
+    }
+
+    .ComicBook_Tab:hover:after {
+        font-size: 1.5vw;
+        top: 85%;
+    }
+
+    .Today_Sale_Tab {
+        width: 40%;
+    }
+
+    .ComicBook_Tab {
+        width: 100%;
+        background-size: 70% 60%;
+    }
+
+    .DiscountAd_Holder {
+        width: 75%;
+        height: 40%;
+    }
+
+    /* Top seller */
+
+    .TopSeller_Books {
+        width: 100%;
+        height: 210vw;
+    }
+
+    .Title_TopSeller {
+        width: 100%;
+        height: 3%;
+        font-size: 4vw;
+    }
+
+    .Desciption_TopSeller {
+        width: 100%;
+        height: 3%;
+        font-size: 2vw;
+    }
+
+    .Content_Holder_Topseller {
+        width: 100%;
+        height: 70%;
+        column-gap: 5vw;
+        row-gap: 5vw;
+        margin-top: 5vw;
+    }
+
+    .Book_Holder_Top_Seller {
+        width: 45%;
+        height: 40%;
+    }
+
+    .Title_Book_Topseller {
+        font-size: 4.7vw;
+        line-height: 6vw;
+    }
+
+    .Ratings {
+        font-size: 4vw;
+        margin: 10% 0 0 0;
+
+    }
+
+    .Cost_Topseller {
+        font-size: 4vw;
+        margin-top: -1vw;
+    }
+
+    .buy {
+        font-size: 2.5vw;
+    }
+
+    /* Recommened Books */
+
+
+    .Recommended_Books {
+        width: 100%;
+        height: 130vw;
+    }
+
+    .WholeContainer_Recommended_Books {
+        height: 90%;
+    }
+
+    .Recommended_Books_Title {
+        height: 8%;
+        font-size: 4.7vw;
+    }
+
+    .Recommended_Books_Decription {
+        height: 3%;
+        font-size: 2vw;
+    }
+
+    .Recommended_Books_Content {
+        width: calc((60vw*14));
+        animation: sliderResponsive 32s linear infinite;
+    }
+
+    .Book_Title_RFY {
+        font-size: 4vw;
+    }
+
+    .Book_Cost_RFY {
+        font-size: 3.5vw;
+    }
+
+    .BuyButton_RFY {
+        font-size: 3vw;
+        display: grid;
+        place-content: center;
+        padding: 2.25vw 6vw 2.25vw 6vw;
+    }
+
+    /* Genre Page */
+
+    .GenrePage {
+        width: 100%;
+        height: 50vw;
+    }
+
+    .Genre_Page_Container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .Genre_Title {
+        width: 80%;
+        height: 50%;
+    }
+
+    .Genre-Title {
+        font-size: 4.7vw;
+    }
+
+    .Genre-Description {
+        font-size: 2vw;
+        margin-top: 1vw;
+    }
+
+    .Genre_Image {
+        width: 80%;
+        height: 50%;
+    }
+
+    .Genre_Types1 {
+        font-size: 2vw;
+    }
+
+    .Genre_Types2 {
+        font-size: 2vw;
+    }
+
+    .Genre_Vector {
+        background-size: 60% 90%;
+        padding-top: 16.7vw;
+        background-position: bottom;
+    }
+
+
+    /* Subscription Page */
+
+
+    .Subscription_Page {
+        width: 100%;
+        height: 150vw;
+    }
+
+    .Content_Holder {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .Subscription_Form {
+        width: 100%;
+    }
+
+    .Subscription_Tab {
+        width: 40%;
+    }
+
+    .SubsContent {
+        width: 100%;
+    }
+
+    .SubscriptionList {
+        width: 120%;
+        font-size: 2vw;
+        margin: 4vw 0vw 15vw 0vw;
+    }
+
+    .Feature {
+        width: 90%;
+    }
+
+    .SubsAmount {
+        font-size: 6vw;
+    }
+
+    .SubsTitle {
+        font-size: 2vw;
+    }
+
+    .SubsButton {
+        width: 100%;
+    }
+
+    .SubscribeButton {
+        width: 18vw;
+        font-size: 2vw;
+        display: flex;
+        margin-top: 15vw;
+        padding: 3vw 8vw;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    .Subscrption_Form_Title {
+        font-size: 4vw;
+    }
+
+    .Subscription_Title {
+        font-size: 4.7vw;
+        text-align: center;
+    }
+
+    .Subscription_Form {
+        width: 90%;
+    }
+
+    .Subscrption_Form_Title {
+        font-size: 2.2vw;
+        padding-left: 6vw;
+    }
+
+    .Subscrption_Form_Form {
+        height: 60%;
+        margin-left: 6vw;
+    }
+
+    .SubscribeForm_Holder {
+        align-items: center;
+
+    }
+
+    .Subscribe_Form_Button {
+        width: 17vw;
+        font-size: 2vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3vw 3vw;
+        margin-left: 12vw;
+    }
+
+    .Form {
+        font-size: 2vw;
+        padding: 2vw 10vw 2vw 1.5vw;
+        border-radius: 5px;
+        font-family: 'Menu';
+        margin: 1vw 2vw 1vw 2vw;
+        border: 1px solid plum;
+    }
+     .Redirect p {
+  font-size: 1.75vw;
+  
+}
+
+    /* Footer */
+
+    .FooterTab {
+        width: 100%;
+        height: 30vw;
+    }
+
+    .FooterContainer {
+        width: 50%;
+        height: 80%;
+    }
+
+    .Socialmedia {
+        font-size: 3vw;
+        margin: 0 8vw;
+    }
+
+    .Terms {
+        font-size: 2vw;
+    }
+
+    .Privacy {
+        font-size: 2vw;
+    }
+
+    .CompanyName {
+        font-size: 2vw;
+    }
+
+    .AgencyName {
+        font-size: 2vw;
+    }
+
+
+    /* Store Page */
+
+    /* Header Store */
+
+    .MainPage_Store {
+        width: 100%;
+        height: 60vw;
+    }
+
+    .Categories_Tab {
+        display: none;
+    }
+
+    .HeaderTab_Store {
+        width: 100%;
+        height: 9vw;
+    }
+
+    .Logout {
+        font-size: 1.5vw;
+    }
+
+    .LogoHolder_Store {
+        font-size: 2.5vw;
+    }
+
+    .Profile_Tab {
+        font-size: 2.5vw;
+    }
+
+    .Slider_Holder {
+        width: 100%;
+        height: 60vw;
+    }
+
+    .SliderAD {
+        width: 100.9%;
+        height: 60vw;
+    }
+
+    .Slider {
+        width: 108%;
+    }
+
+    .NewArrivalTab {
+        width: 100%;
+        height: 220vw;
+    }
+
+    .NewArrival_Holder {
+        width: 90%;
+        height: 90%;
+    }
+
+    .NewArrival_Title {
+        width: 100%;
+        height: 9%;
+        font-size: 6vw;
+    }
+
+    .NewArrival_Shelf {
+        width: 100%;
+        height: 95%;
+        column-gap: 5vw;
+        row-gap: 5vw;
+        margin-top: 5vw;
+        flex-wrap: wrap;
+    }
+
+    .Books {
+        width: 45%;
+        height: 25%;
+    }
+
+    .Overlay_Book {
+        left: 5.8vw;
+    }
+
+    .BuyButton1 {
+        font-size: 5vw;
+    }
+
+    .Book_Title {
+        font-size: 4vw;
+    }
+
+    .Book_Rating {
+        font-size: 3.5vw;
+    }
+
+    .Book_Cost {
+        font-size: 3.5vw;
+    }
+
+    .ComicBookTab {
+        width: 100%;
+        height: 220vw;
+    }
+
+    .QuoteTab {
+        width: 100%;
+        height: 21vw;
+        font-size: 2.5vw;
+    }
+
+    .Non-FictionBookTab {
+        width: 100%;
+        height: 220vw;
+    }
+
+    .KidStoryTab {
+        width: 100%;
+        height: 220vw;
+    }
+
+    .RatingsTab {
+        width: 100%;
+        height: 90vw;
+    }
+
+    .Rating_Holder {
+        flex-direction: column;
+    }
+
+    .Content_Container {
+        width: 60%;
+        height: 90%;
+    }
+
+    .Icon_Holder {
+        font-size: 5vw;
+        margin: 2vw 18vw;
+    }
+
+    .Text_Holder {
+        font-size: 3vw;
+    }
+
+    .FantasyTab {
+        width: 100%;
+        height: 220vw;
+    }
+
+
+    /* Product Page */
+
+    .Product_Page {
+        width: 100%;
+        height: 180vw;
+    }
+
+    .Product_Tab {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Product_Showcase {
+        margin-left: 1vw;
+        width: 50%;
+    }
+
+    .Product_Details {
+        width: 95%;
+        height: 100%;
+        margin-left: -1vw;
+        background-color: #FFE6CC;
+        border-radius: 10px;
+    }
+
+    .Web_Name {
+        font-size: 2vw;
+    }
+
+    .Product_Details_Title {
+        font-size: 1.75vw;
+        text-decoration: underline #774202;
+    }
+
+    .Product_Title {
+        font-size: 4vw;
+    }
+
+    .Product_Genre {
+        font-size: 2.8vw;
+    }
+
+    .Product_Review {
+        font-size: 2vw;
+    }
+
+    .Product_Cost {
+        font-size: 6vw;
+    }
+
+    .Start_Buying_Button,
+    .Start_Buying_Button i {
+        font-size: 2.5vw;
+
+    }
+
+    .Return_Button {
+        font-size: 2.5vw;
+    }
+
+    .Product_Buying_Form {
+        width: 100%;
+        height: 130vw;
+    }
+
+    .ShoppingVector {
+        display: none;
+    }
+
+    .Payment_Gateway {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .Payment_Info {
+        text-align: center;
+        font-family: 'Title';
+        letter-spacing: 2px;
+        font-size: 5vw;
+        margin-left: 0vw;
+        padding-top: 3vw;
+
+    }
+
+    .Pay_Button {
+        font-size: 2.5vw;
+    }
+
+    .PaymentMode label {
+        font-size: 2.7vw;
+    }
+
+    .UPIapps {
+        height: 25%;
+    }
+
+    .UPI label {
+        font-size: 2.7vw;
+    }
+
+    .UPI input {
+        font-size: 2vw;
+        padding: .5vw 1.25vw;
+    }
+
+    #Return_Button1 {
+        font-size: 2vw;
+        padding: 1vw 1vw;
+    }
+
+    .QRTitle {
+        font-size: 3vw;
+        padding-top: 15vw;
+    }
+
+    .QRHolder {
+        background-size: 90% 50%;
+    }
+
+    /* Acknowlegment */
+
+    .OrderTab {
+        width: 100%;
+        height: 175vw;
+    }
+
+    .OrderTab_Holder {
+        width: 80%;
+        height: 80%;
+    }
+
+    .Order_Title {
+        font-size: 5vw;
+    }
+
+    .Order_Status {
+        font-size: 4vw;
+        height: 5%;
+    }
+
+    .Order_Image {
+        background-size: 30% 80%;
+    }
+
+    .Order_Description {
+        font-size: 2vw;
+    }
+
+    .Order-Statement {
+        height: 80%;
+        margin: -3vw 0vw;
+    }
+
+    table {
+        font-size: 2vw;
+    }
+
+    .Track_Button {
+        padding: 1.2vw 2.8vw;
+        font-size: 2vw;
+    }
+
+    .HeaderTab_Order {
+        top: 0;
+    }
+
+    .Tab_Container {}
+}
